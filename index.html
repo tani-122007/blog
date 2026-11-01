@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlogHub - Blog Management System</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<canvas id="hexBackground" aria-hidden="true"></canvas>
+
+<main class="login-screen" id="loginScreen">
+  <form class="login-card" id="loginForm">
+    <div class="logo">📝 BlogHub</div>
+    <h1>Welcome back</h1>
+    <p>Log in to continue to your blog.</p>
+    <label for="loginEmail">Email</label>
+    <input id="loginEmail" name="email" type="email" autocomplete="username" placeholder="you@example.com" required>
+    <label for="loginPassword">Password</label>
+    <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+    <button class="btn full" type="submit">Log in</button>
+    <div class="social-section">
+      <p>Follow BlogHub</p>
+      <ul class="social-links" aria-label="BlogHub social media">
+        <li>
+          <a class="social-icon facebook" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <span class="social-tooltip">Facebook</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7Z" fill="currentColor"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="social-icon twitter" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <span class="social-tooltip">X</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z" fill="currentColor"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="social-icon instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <span class="social-tooltip">Instagram</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" fill="currentColor"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <small>Demo login: enter any valid email and a password. Account verification requires a backend.</small>
+  </form>
+</main>
+
+<div id="app" hidden>
+<header>
+  <div class="logo">📝 BlogHub</div>
+  <nav>
+    <a class="active" onclick="showHome()">Home</a>
+    <a onclick="showDashboard()">Dashboard</a>
+  </nav>
+  <ul class="social-links header-social-links" aria-label="BlogHub social media">
+    <li><a class="social-icon facebook" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7Z" fill="currentColor"/></svg></a></li>
+    <li><a class="social-icon twitter" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z" fill="currentColor"/></svg></a></li>
+    <li><a class="social-icon instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" fill="currentColor"/></svg></a></li>
+  </ul>
+  <div class="header-actions">
+    <button class="btn" onclick="openModal()">+ New Post</button>
+    <button class="btn-outline" onclick="logout()">Log out</button>
+  </div>
+</header>
+
+<div class="hero" id="hero">
+  <h1>Share Your Story With The World</h1>
+  <p>Create, manage, and grow your blog effortlessly.</p>
+  <div class="search-box">
+    <input id="search" placeholder="Search posts, topics, authors..." onkeyup="renderBlogs()">
+    <button class="btn" onclick="renderBlogs()">Search</button>
+  </div>
+</div>
+
+<div class="filter-bar" id="filters">
+  <button class="active" onclick="setCat('ALL')">All</button>
+  <button onclick="setCat('TECH')">Tech</button>
+  <button onclick="setCat('TRAVEL')">Travel</button>
+  <button onclick="setCat('FOOD')">Food</button>
+  <button onclick="setCat('LIFESTYLE')">Lifestyle</button>
+</div>
+
+<div class="container">
+  <div class="blogs" id="blogs"></div>
+  <div class="sidebar">
+    <div class="box">
+      <h3>🔥 Popular Posts</h3>
+      <div id="popular"></div>
+    </div>
+    <div class="box">
+      <h3>📧 Newsletter</h3>
+      <p>Get latest posts in your inbox.</p>
+      <input placeholder="Enter your email">
+      <button class="btn full">Subscribe</button>
+    </div>
+    <div class="box">
+      <h3>📊 Stats</h3>
+      <p>Total Blogs: <b id="totalCount">0</b></p>
+      <p>Total Views: <b id="totalViews">0</b></p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 id="modalTitle">Create New Blog</h2>
+    <label>Title</label><input id="bTitle" placeholder="Blog Title">
+    <label>Category</label><select id="bCat"><option>TECH</option><option>TRAVEL</option><option>FOOD</option><option>LIFESTYLE</option></select>
+    <label>Image URL</label><input id="bImg" placeholder="https://...">
+    <label>Author</label><input id="bAuthor" placeholder="Author Name">
+    <label>Content</label><textarea id="bContent" rows="6" placeholder="Write your blog content..."></textarea>
+    <div class="modal-btns">
+      <button class="btn" onclick="saveBlog()">Publish</button>
+      <button class="btn-outline" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</div>
+</body>
+</html>
